@@ -722,3 +722,6 @@ node_modules/with/node_modules/acorn/src/loose/tokenize.js
 node_modules/with/node_modules/acorn/src/walk/index.js
 node_modules/wordwrap/.npmignore
 node_modules/wordwrap/package.json
+bin/server.cert
+bin/server.key
+.gitignore
