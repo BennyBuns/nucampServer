@@ -725,3 +725,5 @@ node_modules/wordwrap/package.json
 bin/server.cert
 bin/server.key
 .gitignore
+package-lock.json
+package.json
