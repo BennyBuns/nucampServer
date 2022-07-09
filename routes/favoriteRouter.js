@@ -23,10 +23,10 @@ favoriteRouter.route('/')
             .then(favorite => {
                 if (favorite) {
                     // looping over the array that we got on the req.body
-                    req.body.forEach(fav => {
-                        if (!favorite.campsites.includes(fav._id))
+                    req.body.campsites.forEach(fav => {
+                        if (!favorite.campsites.includes(fav))
                             // for each fav obj, we push the _id to the campsites field from the document
-                            favorite.campsites.push(fav._id)
+                            favorite.campsites.push(fav)
                     })
                     favorite.save()
                         .then((favorite) => {
@@ -38,7 +38,7 @@ favoriteRouter.route('/')
                         })
                         .catch(err => next(err));
                 } else {
-                    Favorite.create({ user: req.user._id, campsites: req.body })
+                    Favorite.create({ user: req.user._id, campsites: req.body.campsites })
                         .then((favorite) => {
                             res.statusCode = 200;
                             res.setHeader('Content-Type', 'application/json');
